@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.4.33110.190
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JKSFix", "JKSFix.csproj", "{7C297025-6AA3-4407-A800-99C97776C032}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7C297025-6AA3-4407-A800-99C97776C032}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7C297025-6AA3-4407-A800-99C97776C032}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7C297025-6AA3-4407-A800-99C97776C032}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7C297025-6AA3-4407-A800-99C97776C032}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D748AA67-EF08-43E9-8AD6-7E59E2E0A337}
+	EndGlobalSection
+EndGlobal

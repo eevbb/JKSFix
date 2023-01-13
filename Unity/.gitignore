@@ -1,0 +1,44 @@
+# Unity generated directories.
+Library/
+Temp/
+Obj/
+Build/
+Builds/
+Logs/
+UserSettings/
+AssetBundles/
+
+Packages/packages-lock.json
+
+# Unity generated files.
+sysinfo.txt
+*.pidb.meta
+*.pdb.meta
+*.mdb.meta
+ 
+# IDE generated.
+ExportedObj/
+.vs/
+.vscode/
+.vsconfig
+StyleCop.cache
+*.csproj
+*.unityproj
+*.sln*
+*.suo
+*.tmp
+*.user
+*.userprefs
+*.pidb
+*.booproj
+*.svd
+*.pbd
+*.mbd
+*.openbd
+*.VC.db
+
+# NatCorder generated.
+recording_*.mp4
+
+# OS generated.
+.DS_Store
