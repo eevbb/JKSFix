@@ -5,6 +5,7 @@ using HarmonyLib;
 using Il2CppInterop.Runtime.Attributes;
 using System.Collections.Generic;
 using System.IO;
+using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
@@ -65,6 +66,14 @@ public class Plugin : BasePlugin
 
         new DeathAnimation().SetUp(Toggles["DeathAnimation"]);
 
+        new BlackBars().SetUp(
+            Config.Bind("Main", "BlackBars", true, "Disable to remove ultrawide black bars."),
+            Toggles["BlackBars"]);
+
+        new ChromaticAberration().SetUp(
+            Config.Bind("Main", "ChromaticAberration", true, "Chromatic aberration visual effect."),
+            Toggles["ChromaticAberration"]);
+
         new FieldOfView().SetUp(
             Config.Bind("Main", "FieldOfView", 40, "In-game camera field of view."),
             Sliders["FieldOfView"], Texts["FoVDisplay"]);
@@ -76,8 +85,9 @@ public class Plugin : BasePlugin
         Log.LogInfo($"Plugin {MyPluginInfo.PLUGIN_GUID} is loaded!");
     }
 
-    public static void Print(string message)
+    public static void Print(Il2CppSystem.Object message)
     {
-        LogSource?.LogInfo(message);
+        Debug.Log(message);
+        //LogSource?.LogInfo(message);
     }
 }

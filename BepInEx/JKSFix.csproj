@@ -3,7 +3,7 @@
     <TargetFramework>net6.0</TargetFramework>
     <AssemblyName>JKSFix</AssemblyName>
     <Description></Description>
-    <Version>3.3.0</Version>
+    <Version>3.4.0</Version>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     <LangVersion>latest</LangVersion>
     <RestoreAdditionalProjectSources>
@@ -38,8 +38,16 @@
       <HintPath>$(InteropDir)\Polaris.GameFrame.dll</HintPath>
     </Reference>
 
+    <Reference Include="Polaris.URP">
+      <HintPath>$(InteropDir)\Polaris.URP.dll</HintPath>
+    </Reference>
+
     <Reference Include="Unity.InputSystem">
       <HintPath>$(InteropDir)\Unity.InputSystem.dll</HintPath>
+    </Reference>
+
+    <Reference Include="Unity.RenderPipelines.Core.Runtime">
+      <HintPath>$(InteropDir)\Unity.RenderPipelines.Core.Runtime.dll</HintPath>
     </Reference>
 
     <Reference Include="UnityEngine.CoreModule">

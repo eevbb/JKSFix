@@ -26,7 +26,7 @@ public class UserInterface : MonoBehaviour
             .Cast<GameObject>();
         _canvas = Instantiate(prefab, transform);
 
-        foreach (var selectable in _canvas.GetComponentsInChildren<Selectable>())
+        foreach (var selectable in _canvas.GetComponentsInChildren<Selectable>(true))
         {
             {
                 Button? casted = selectable.TryCast<Button>();
@@ -47,7 +47,7 @@ public class UserInterface : MonoBehaviour
             }
         }
 
-        foreach (var text in _canvas.GetComponentsInChildren<Text>())
+        foreach (var text in _canvas.GetComponentsInChildren<Text>(true))
             Plugin.Texts[text.name] = text;
     }
 
