@@ -80,6 +80,11 @@ public class Plugin : BasePlugin
 
         Anim.SetUp(Toggles);
 
+        AddComponent<Rendering>().SetUp(
+            Config,
+            Config.Bind("Hotkeys", "ReloadRenderingSettings", Key.Home,
+                "Press to reload all settings in the Rendering category."));
+
         Texts["MainTitle"].text = $"{MyPluginInfo.PLUGIN_NAME} {MyPluginInfo.PLUGIN_VERSION}";
 
         Log.LogInfo($"Plugin {MyPluginInfo.PLUGIN_GUID} is loaded!");

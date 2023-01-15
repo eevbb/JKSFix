@@ -3,7 +3,7 @@
     <TargetFramework>net6.0</TargetFramework>
     <AssemblyName>JKSFix</AssemblyName>
     <Description></Description>
-    <Version>3.4.0</Version>
+    <Version>3.5.0</Version>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     <LangVersion>latest</LangVersion>
     <RestoreAdditionalProjectSources>
@@ -48,6 +48,10 @@
 
     <Reference Include="Unity.RenderPipelines.Core.Runtime">
       <HintPath>$(InteropDir)\Unity.RenderPipelines.Core.Runtime.dll</HintPath>
+    </Reference>
+
+    <Reference Include="Unity.RenderPipelines.Universal.Runtime">
+      <HintPath>$(InteropDir)\Unity.RenderPipelines.Universal.Runtime.dll</HintPath>
     </Reference>
 
     <Reference Include="UnityEngine.CoreModule">
