@@ -1,14 +1,9 @@
-﻿using App;
-using BepInEx.Configuration;
-using HarmonyLib;
+﻿using BepInEx.Configuration;
 using Il2CppInterop.Runtime.Attributes;
 using System;
 using UnityEngine;
-using UnityEngine.Events;
 using UnityEngine.InputSystem;
 using UnityEngine.Rendering.Universal;
-using UnityEngine.UI;
-using Object = UnityEngine.Object;
 
 namespace JKSFix;
 
@@ -75,7 +70,9 @@ public class Rendering : MonoBehaviour
         Rendering.LoadCameraSettings(_config);
     }
 
+#pragma warning disable IDE0051
     private void Update()
+#pragma warning restore IDE0051
     {
         if (_config == null)
             return;

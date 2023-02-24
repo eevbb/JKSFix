@@ -93,6 +93,6 @@ public class Plugin : BasePlugin
     public static void Print(Il2CppSystem.Object message)
     {
         Debug.Log(message);
-        //LogSource?.LogInfo(message);
+        LogSource?.LogInfo(message);
     }
 }
