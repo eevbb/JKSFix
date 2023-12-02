@@ -24,12 +24,17 @@ WINEDLLOVERRIDES="winhttp.dll=n,b" %command%
 ```
 (Thanks to Kou-kun for figuring that out~)
 
+### For ultrawide/custom resolutions
+
+Follow [this guide](https://steamcommunity.com/sharedfiles/filedetails/?id=2699973520) to set your preferred resolution. If the black bars fix doesn't work, user DT reported disabling the Steam overlay for the game helped.
+
 ### To change hotkeys
 
 First run the latest version of the mod at least once so it generates a config file. Then, simply open the file BepInEx\config\JKSFix.cfg in notepad, and change the keybinds there.
 
-## Advanced graphics settings
-These can only be changed manually via config file, in the Rendering section.
+### Advanced graphics settings
+
+Like hotkeys, these can only be changed manually via config file, in the Rendering section.
 
 Any value set to the default of -1 is ignored by the mod (so the game's default is applied instead).
 
@@ -38,11 +43,12 @@ Values are not validated or sanitized so make sure you know the values you're se
 There's also a hotkey to reload all Rendering settings during runtime.
 
 ## Quick troubleshooting and disclaimer
+
 If the mod doesn't work, make sure to install VC++ redistributable if you haven't already! [Find it here.](https://aka.ms/vs/17/release/vc_redist.x64.exe)
 
 I don't know if this is compatible with other mods, and I haven't played the game a lot so there could be bugs or issues, use at your own risk!
 
-## Building the DLL
+## Building the DLL (for developers!)
 
 1. Install Samurai Maiden on your computer
 
