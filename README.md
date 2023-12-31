@@ -3,6 +3,7 @@
 A Samurai Maiden mod.
 
 ## Screenshots!
+
 * [Get as close as you like, characters won't disappear~](./Screenshots/image0.png?raw=1)
 * [Pantsu fully uncensored!](./Screenshots/image1.png?raw=1)
 * [New menu with lots of options!](./Screenshots/image2.png?raw=1)
@@ -12,6 +13,7 @@ A Samurai Maiden mod.
 Big thanks and hugs to XenoMars for buying the game for me so I can keep modding it! 😊💖
 
 ## Download and instructions
+
 [Download 💖](../../releases/latest)
 
 Extract straight into the game folder, then run the game. First time running the game after installing the mod can take a few minutes. Afterwards it should be fast as usual.
@@ -75,6 +77,9 @@ I don't know if this is compatible with other mods, and I haven't played the gam
 4. Open the project in Visual Studio and build away!
 
 ## Changelog
+
+* New in 3.6
+  * Replaced death animation toggle with a brand new animations menu! You can now preview any animation you want. It only works on stages. Make sure to click unset when you're done or you won't be able to move!
 
 * New in 3.5
   * Added multiple graphics settings. [See above!](#advanced-graphics-settings)
