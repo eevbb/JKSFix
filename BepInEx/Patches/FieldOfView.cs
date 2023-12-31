@@ -41,7 +41,7 @@ public class FieldOfView : GenericMod<int>
     }
 }
 
-static partial class Patches
+public static partial class Patches
 {
     public static event Action<InGameCamera>? InGameCameraRegistered;
 

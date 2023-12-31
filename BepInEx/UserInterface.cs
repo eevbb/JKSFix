@@ -21,34 +21,39 @@ public class UserInterface : MonoBehaviour
     private void Awake()
 #pragma warning restore IDE0051
     {
-        var prefab = AssetBundle.LoadFromFile(Plugin.CanvasPath)
-            .LoadAsset("Canvas")
-            .Cast<GameObject>();
-        _canvas = Instantiate(prefab, transform);
+        var ab = AssetBundle.LoadFromFile(Plugin.CanvasPath);
 
-        foreach (var selectable in _canvas.GetComponentsInChildren<Selectable>(true))
         {
-            {
-                Button? casted = selectable.TryCast<Button>();
-                if (casted != null)
-                    Plugin.Buttons[casted.name] = casted;
-            }
-
-            {
-                Toggle? casted = selectable.TryCast<Toggle>();
-                if (casted != null)
-                    Plugin.Toggles[casted.name] = casted;
-            }
-
-            {
-                Slider? casted = selectable.TryCast<Slider>();
-                if (casted != null)
-                    Plugin.Sliders[casted.name] = casted;
-            }
+            // Keep an inactive instance so it doesn't unload
+            var togglePrefab = Instantiate(ab.LoadAsset("Toggle").Cast<GameObject>(), transform);
+            togglePrefab.SetActive(false);
+            Plugin.Prefabs["Toggle"] = togglePrefab;
         }
 
-        foreach (var text in _canvas.GetComponentsInChildren<Text>(true))
-            Plugin.Texts[text.name] = text;
+        _canvas = Instantiate(ab
+            .LoadAsset("Canvas")
+            .Cast<GameObject>(), transform);
+
+        foreach (var t in _canvas.GetComponentsInChildren<Transform>(true))
+        {
+            if (t.name.EndsWith("Panel"))
+                Plugin.Panels[t.name] = t.gameObject;
+
+            if (t.GetComponent<Button>() is Button button)
+                Plugin.Buttons[t.name] = button;
+
+            if (t.GetComponent<Toggle>() is Toggle toggle)
+                Plugin.Toggles[t.name] = toggle;
+
+            if (t.GetComponent<Slider>() is Slider slider)
+                Plugin.Sliders[t.name] = slider;
+
+            if (t.GetComponent<Text>() is Text text)
+                Plugin.Texts[t.name] = text;
+
+            if (t.GetComponent<ScrollRect>() is ScrollRect scrollRect)
+                Plugin.ScrollRects[t.name] = scrollRect;
+        }
     }
 
     [HideFromIl2Cpp]

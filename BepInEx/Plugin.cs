@@ -6,6 +6,7 @@ using Il2CppInterop.Runtime.Attributes;
 using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
@@ -20,6 +21,12 @@ public class Plugin : BasePlugin
     private static ManualLogSource? LogSource { get; set; }
 
     [HideFromIl2Cpp]
+    public static Dictionary<string, GameObject> Prefabs { get; } = new();
+
+    [HideFromIl2Cpp]
+    public static Dictionary<string, GameObject> Panels { get; } = new();
+
+    [HideFromIl2Cpp]
     public static Dictionary<string, Button> Buttons { get; } = new();
 
     [HideFromIl2Cpp]
@@ -30,6 +37,12 @@ public class Plugin : BasePlugin
 
     [HideFromIl2Cpp]
     public static Dictionary<string, Text> Texts { get; } = new();
+
+    [HideFromIl2Cpp]
+    public static Dictionary<string, ScrollRect> ScrollRects { get; } = new();
+
+    [HideFromIl2Cpp]
+    private static GameObject DefaultPanel => Panels["DefaultPanel"];
 
     public static bool AdvancingFrame { get; set; }
 
@@ -64,7 +77,10 @@ public class Plugin : BasePlugin
 
         new TriggerStun().SetUp(Toggles["TriggerStun"]);
 
-        new DeathAnimation().SetUp(Toggles["DeathAnimation"]);
+        new Animation().SetUp(
+            ScrollRects["AnimationScroll"],
+            Toggles["AnimationUnset"],
+            Prefabs["Toggle"]); 
 
         new BlackBars().SetUp(
             Config.Bind("Main", "BlackBars", true, "Disable to remove ultrawide black bars."),
@@ -84,6 +100,26 @@ public class Plugin : BasePlugin
             Config,
             Config.Bind("Hotkeys", "ReloadRenderingSettings", Key.Home,
                 "Press to reload all settings in the Rendering category."));
+
+        void addPanel(Button open, Button back, GameObject panel)
+        {
+            open.onClick.AddListener((UnityAction)(() =>
+            {
+                DefaultPanel.SetActive(false);
+                panel.SetActive(true);
+            }));
+
+            back.onClick.AddListener((UnityAction)(() =>
+            {
+                DefaultPanel.SetActive(true);
+                panel.SetActive(false);
+            }));
+
+            panel.SetActive(false);
+        }
+
+        addPanel(Buttons["Animation"], Buttons["AnimationBack"], Panels["AnimationPanel"]);
+        DefaultPanel.SetActive(true);
 
         Texts["MainTitle"].text = $"{MyPluginInfo.PLUGIN_NAME} {MyPluginInfo.PLUGIN_VERSION}";
 
