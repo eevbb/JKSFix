@@ -18,6 +18,7 @@
 
   <PropertyGroup>
     <InteropDir>$(GameDir)\BepInEx\interop\</InteropDir>
+    <PluginDir>$(GameDir)\BepInEx\plugins\$(AssemblyName)\</PluginDir>
   </PropertyGroup>
 
   <ItemGroup>
@@ -82,4 +83,14 @@
       <HintPath>$(InteropDir)\Il2Cppmscorlib.dll</HintPath>
     </Reference>
   </ItemGroup>
+
+  <Target Name="CopyStuff" AfterTargets="AfterBuild">
+    <Copy
+      SourceFiles="$(ProjectDir)\..\Unity\AssetBundles\StandaloneWindows\canvas"
+      DestinationFolder="$(PluginDir)"
+      ContinueOnError="true" />
+    <Copy
+      SourceFiles="$(TargetDir)\$(TargetName).dll"
+      DestinationFolder="$(PluginDir)" />
+  </Target>
 </Project>

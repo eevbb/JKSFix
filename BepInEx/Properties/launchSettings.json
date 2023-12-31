@@ -1,0 +1,9 @@
+{
+  "profiles": {
+    "JKSFix": {
+      "commandName": "Executable",
+      "executablePath": "$(GameDir)\\JKS_Win64.exe",
+      "hotReloadEnabled": false
+    }
+  }
+}
